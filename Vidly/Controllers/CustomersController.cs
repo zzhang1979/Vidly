@@ -20,7 +20,6 @@ namespace Vidly.Controllers
 
         public ViewResult Index()
         {
-            //var customers = GetCustomers();
             var customers = _context.Customers.Include(c => c.MembershipType);
             return View(customers);
         }
@@ -34,7 +33,6 @@ namespace Vidly.Controllers
             else
             {
                 var customer = _context.Customers.SingleOrDefault(c => c.Id == id);
-                //var customer = GetCustomers().Customers.SingleOrDefault(c => c.Id == id);
                 if (customer == null)
                     return HttpNotFound();
 
@@ -43,13 +41,5 @@ namespace Vidly.Controllers
 
         }
 
-        //private IEnumerable<Customer> GetCustomers()
-        //{
-        //    return new List<Customer>
-        //    {
-        //        new Customer { Id = 1, Name = "John Smith" },
-        //        new Customer { Id = 2, Name = "Mary Williams" }
-        //    };
-        //}
     }
 }
