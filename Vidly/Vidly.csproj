@@ -223,6 +223,22 @@
     <Compile Include="Migrations\201611150215432_ApplyAnnotationsToCustomerName.Designer.cs">
       <DependentUpon>201611150215432_ApplyAnnotationsToCustomerName.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201611150326150_AddNameToMembershipType.cs" />
+    <Compile Include="Migrations\201611150326150_AddNameToMembershipType.Designer.cs">
+      <DependentUpon>201611150326150_AddNameToMembershipType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201611150327447_PopulateNameForMembershipType.cs" />
+    <Compile Include="Migrations\201611150327447_PopulateNameForMembershipType.Designer.cs">
+      <DependentUpon>201611150327447_PopulateNameForMembershipType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201611150344300_addDOBForCustomer.cs" />
+    <Compile Include="Migrations\201611150344300_addDOBForCustomer.Designer.cs">
+      <DependentUpon>201611150344300_addDOBForCustomer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201611150353191_setDOBNullable.cs" />
+    <Compile Include="Migrations\201611150353191_setDOBNullable.Designer.cs">
+      <DependentUpon>201611150353191_setDOBNullable.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Customer.cs" />
@@ -328,6 +344,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201611150215432_ApplyAnnotationsToCustomerName.resx">
       <DependentUpon>201611150215432_ApplyAnnotationsToCustomerName.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201611150326150_AddNameToMembershipType.resx">
+      <DependentUpon>201611150326150_AddNameToMembershipType.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201611150327447_PopulateNameForMembershipType.resx">
+      <DependentUpon>201611150327447_PopulateNameForMembershipType.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201611150344300_addDOBForCustomer.resx">
+      <DependentUpon>201611150344300_addDOBForCustomer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201611150353191_setDOBNullable.resx">
+      <DependentUpon>201611150353191_setDOBNullable.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

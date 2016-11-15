@@ -1,4 +1,5 @@
 ﻿@model IEnumerable<Vidly.Models.Movie>
+@{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
@@ -10,23 +11,23 @@
 }
 else
 {
-<table class="table table-bordered table-hover">
-    <thead>
-        <tr>
-            <th>Movie</th>
-        </tr>
-    </thead>
-   
-    
-    <tbody>
-
-       
-        @foreach (var movies in Model)
-        {
+    <table class="table table-bordered table-hover">
+        <thead>
             <tr>
-                <td>@Html.ActionLink(movies.Name, "Details", "Movies", new { id = movies.Id }, null)</td>
+                <th>Movie</th>
             </tr>
-        }
-    </tbody>
-</table>
+        </thead>
+
+
+        <tbody>
+
+
+            @foreach (var movies in Model)
+            {
+                <tr>
+                    <td>@Html.ActionLink(movies.Name, "Details", "Movies", new { id = movies.Id }, null)</td>
+                </tr>
+            }
+        </tbody>
+    </table>
 }
