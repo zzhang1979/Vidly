@@ -43,14 +43,21 @@ namespace Vidly.Controllers
             return View(viewModel);
         }
 
-        public ActionResult Details(int id)
+        public ActionResult Details(int? id)
         {
-            var movie = GetMovies().SingleOrDefault(c => c.Id == id);
+            if (id == null)
+            {
+                return Content("Please provide movie ID");
+            }
+            else
+            {
+                var movie = GetMovies().SingleOrDefault(c => c.Id == id);
 
-            if (movie == null)
-                return HttpNotFound();
+                if (movie == null)
+                    return HttpNotFound();
 
-            return View(movie);
+                return View(movie);
+            }
         }
     }
 }
