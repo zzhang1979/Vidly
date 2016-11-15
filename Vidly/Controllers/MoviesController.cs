@@ -23,7 +23,7 @@ namespace Vidly.Controllers
  
         public ViewResult Index()
         {
-            var movies = _context.Movies;
+            var movies = _context.Movies.Include(mbox=>mbox.Genre);
             return View(movies);
         }
 
@@ -35,7 +35,7 @@ namespace Vidly.Controllers
             }
             else
             {
-                var movie = _context.Movies.SingleOrDefault(c => c.Id == id);
+                var movie = _context.Movies.Include(m => m.Genre).SingleOrDefault(c => c.Id == id);
 
                 if (movie == null)
                     return HttpNotFound();
