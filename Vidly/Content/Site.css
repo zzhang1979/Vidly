@@ -23,6 +23,7 @@ textarea {
     max-width: 280px;
 }
 
+/*Custom style below this point*/
 .field-validation-error {
     color: red;
 }
