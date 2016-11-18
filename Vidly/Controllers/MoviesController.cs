@@ -1,10 +1,9 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Data.Entity;
+using System.Linq;
 using System.Web.Mvc;
 using Vidly.Models;
 using Vidly.ViewModels;
-using System.Linq;
-using System.Data.Entity;
-using System;
 
 namespace Vidly.Controllers
 {
@@ -62,7 +61,7 @@ namespace Vidly.Controllers
             }
 
             _context.SaveChanges();
-            return RedirectToAction("Index","Movies");
+            return RedirectToAction("Index", "Movies");
         }
 
         public ActionResult Edit(int id)
@@ -82,8 +81,8 @@ namespace Vidly.Controllers
 
         public ViewResult Index()
         {
-            var movies = _context.Movies.Include(mbox=>mbox.Genre);
-            return View(movies);
+            //var movies = _context.Movies.Include(mbox=>mbox.Genre);
+            return View();
         }
 
         public ActionResult Details(int? id)

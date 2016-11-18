@@ -1,8 +1,7 @@
-﻿using System.Collections.Generic;
+﻿using System.Data.Entity;
 using System.Linq;
 using System.Web.Mvc;
 using Vidly.Models;
-using System.Data.Entity;
 using Vidly.ViewModels;
 
 namespace Vidly.Controllers
@@ -39,7 +38,7 @@ namespace Vidly.Controllers
             if (!ModelState.IsValid)
             {
 
-                
+
                 var viewModel = new CustomerFormViewModel
                 {
                     Customer = customer,
@@ -83,8 +82,8 @@ namespace Vidly.Controllers
 
         public ViewResult Index()
         {
-            var customers = _context.Customers.Include(c => c.MembershipType);
-            return View(customers);
+            //var customers = _context.Customers.Include(c => c.MembershipType);
+            return View();
         }
 
         public ActionResult Details(int? id)
@@ -95,7 +94,7 @@ namespace Vidly.Controllers
             }
             else
             {
-                var customer = _context.Customers.Include(c =>c.MembershipType).SingleOrDefault(c => c.Id == id);
+                var customer = _context.Customers.Include(c => c.MembershipType).SingleOrDefault(c => c.Id == id);
                 if (customer == null)
                     return HttpNotFound();
 
