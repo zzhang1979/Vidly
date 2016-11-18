@@ -32,10 +32,8 @@ namespace Vidly.Controllers.Api
 
             if (customer == null)
                 return NotFound();
-            //throw new HttpResponseException(HttpStatusCode.NotFound);
             return Ok(Mapper.Map<Customer, CustomerDto>(customer));
 
-            //return Mapper.Map<Customer, CustomerDto>(customer);
         }
 
         //POST /api/customers
@@ -44,7 +42,6 @@ namespace Vidly.Controllers.Api
         {
             if (!ModelState.IsValid)
                 return BadRequest();
-            //throw new HttpResponseException(HttpStatusCode.BadRequest);
 
             var customer = Mapper.Map<CustomerDto, Customer>(customerDto);
             _context.Customers.Add(customer);
@@ -53,7 +50,6 @@ namespace Vidly.Controllers.Api
             customerDto.Id = customer.Id;
 
             return Created(new Uri(Request.RequestUri + "/" + customer.Id), customerDto);
-            //return customerDto;
         }
 
         //PUT /api/customers/1
@@ -74,7 +70,7 @@ namespace Vidly.Controllers.Api
 
         //DELETE /api/customers/1
         [HttpDelete]
-        public void DeleleCustomer(int id)
+        public void DeleteCustomer(int id)
         {
             var customerInDb = _context.Customers.SingleOrDefault(c => c.Id == id);
             if (customerInDb == null)
