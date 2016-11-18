@@ -24,10 +24,10 @@
 <script>
         $(document).ready(function () {
         //DataTable to handle presentation dataTable will look in to current document and look for table with id movies
-            $("#movies").DataTable({
+            var table = $("#movies").DataTable({
                 ajax: {url: "api/movies",dataSrc: ""},
                 columns: [
-                    { data: "name", render: function (data, type, movie) {return "<a href='/movies/edit"+movie.id+"'>" + movie.name + "</a>"}},
+                    { data: "name", render: function (data, type, movie) {return "<a href='/movies/edit/"+movie.id+"'>" + movie.name + "</a>"}},
                     { data: "genre.name" },
         //give class js-delete to specify this button will invoke click .js-delete filter
                     { data: "id", render: function (data) {return "<button class='btn btn-link js-delete' data-movie-id="+data+">Delete</button>"} },
@@ -46,7 +46,7 @@
                             url: "/api/movies/" + button.attr("data-movie-id"),
                             method: "DELETE",
                             success: function () {
-                                button.parents("tr").remove();
+                                table.row(button.parents("tr")).remove().draw();
                             }
                         });
                     }
